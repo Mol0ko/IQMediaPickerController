@@ -287,7 +287,7 @@
         [self.delegate assetsPickerController:self didPickAssets:self.selectedItems];
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)doneAction:(UIBarButtonItem *)sender
