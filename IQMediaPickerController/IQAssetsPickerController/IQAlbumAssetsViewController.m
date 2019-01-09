@@ -69,7 +69,7 @@
     
     self.fetchResult = [PHAsset fetchAssetsInAssetCollection:self.collection options:options];
     
-    self.doneBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneAction:)];
+    self.doneBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Далее" style:UIBarButtonItemStyleDone target:self action:@selector(doneAction:)];
     self.navigationItem.rightBarButtonItem = self.doneBarButton;
     
     UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -136,11 +136,11 @@
         [self.navigationItem setRightBarButtonItem:self.doneBarButton animated:animated];
         [self.navigationController setToolbarHidden:NO animated:animated];
         
-        NSString *finalText = [NSString stringWithFormat:@"%lu Media selected",(unsigned long)[self.assetController.selectedItems count]];
+        NSString *finalText = [NSString stringWithFormat:@"%lu выбрано",(unsigned long)[self.assetController.selectedItems count]];
         
         if (self.assetController.maximumItemCount > 0)
         {
-            finalText = [finalText stringByAppendingFormat:@" (%lu maximum) ",(unsigned long)self.assetController.maximumItemCount];
+            finalText = [finalText stringByAppendingFormat:@" (%lu max) ",(unsigned long)self.assetController.maximumItemCount];
         }
         self.selectedMediaCountItem.title = finalText;
     }
@@ -255,8 +255,8 @@
         
         if (self.mediaTypes.count == 1 && [self.mediaTypes containsObject:@(PHAssetMediaTypeImage)])
         {
-            NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"No Photos" attributes:titleAttributes];
-            NSAttributedString *attributedMessage = [[NSAttributedString alloc] initWithString:@"\nThis album contains no photos" attributes:messageAttributes];
+            NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Нет фото" attributes:titleAttributes];
+            NSAttributedString *attributedMessage = [[NSAttributedString alloc] initWithString:@"\nЭтот альбом пуст" attributes:messageAttributes];
             NSMutableAttributedString *finalMessage = [[NSMutableAttributedString alloc] init];
             [finalMessage appendAttributedString:attributedTitle];
             [finalMessage appendAttributedString:attributedMessage];
@@ -264,8 +264,8 @@
         }
         else if (self.mediaTypes.count == 1 && [self.mediaTypes containsObject:@(PHAssetMediaTypeVideo)])
         {
-            NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"No Videos" attributes:titleAttributes];
-            NSAttributedString *attributedMessage = [[NSAttributedString alloc] initWithString:@"\nThis album contains no videos" attributes:messageAttributes];
+            NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Нет видео" attributes:titleAttributes];
+            NSAttributedString *attributedMessage = [[NSAttributedString alloc] initWithString:@"\nЭтот альбом не содержит видео" attributes:messageAttributes];
             NSMutableAttributedString *finalMessage = [[NSMutableAttributedString alloc] init];
             [finalMessage appendAttributedString:attributedTitle];
             [finalMessage appendAttributedString:attributedMessage];
@@ -273,8 +273,8 @@
         }
         else
         {
-            NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"No Media" attributes:titleAttributes];
-            NSAttributedString *attributedMessage = [[NSAttributedString alloc] initWithString:@"\nThis album contains no medias" attributes:messageAttributes];
+            NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Медиа файлы отсутствуют" attributes:titleAttributes];
+            NSAttributedString *attributedMessage = [[NSAttributedString alloc] initWithString:@"\nЭтот альбом не содержит медиа файлов" attributes:messageAttributes];
             NSMutableAttributedString *finalMessage = [[NSMutableAttributedString alloc] init];
             [finalMessage appendAttributedString:attributedTitle];
             [finalMessage appendAttributedString:attributedMessage];
