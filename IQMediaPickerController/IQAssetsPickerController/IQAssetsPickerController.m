@@ -263,11 +263,11 @@
         [self.navigationItem setRightBarButtonItem:self.doneBarButton animated:animated];
         [self.navigationController setToolbarHidden:NO animated:animated];
         
-        NSString *finalText = [NSString stringWithFormat:@"%lu Media selected",(unsigned long)[self.selectedItems count]];
+        NSString *finalText = [NSString stringWithFormat:@"%lu выбрано",(unsigned long)[self.selectedItems count]];
         
         if (self.maximumItemCount > 0)
         {
-            finalText = [finalText stringByAppendingFormat:@" (%lu maximum) ",(unsigned long)self.maximumItemCount];
+            finalText = [finalText stringByAppendingFormat:@" (%lu max) ",(unsigned long)self.maximumItemCount];
         }
 
         self.selectedMediaCountItem.title = finalText;
