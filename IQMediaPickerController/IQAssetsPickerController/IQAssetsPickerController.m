@@ -63,18 +63,18 @@
     //If top level framework
     if(self.collectionList == nil)
     {
-        self.navigationItem.title = @"All Albums";
+        self.navigationItem.title = @"фотоплёнка";
     }
     else
     {
         self.navigationItem.title = self.collectionList.localizedTitle;
     }
     
-    self.doneBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneAction:)];
+    self.doneBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Готово" style:UIBarButtonItemStyleDone target:self action:@selector(doneAction:)];
     
     if (self.collectionList == nil)
     {
-        self.cancelBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleDone target:self action:@selector(cancelAction:)];
+        self.cancelBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Отмена" style:UIBarButtonItemStyleDone target:self action:@selector(cancelAction:)];
         [self.navigationItem setLeftBarButtonItem:self.cancelBarButton];
     }
     
