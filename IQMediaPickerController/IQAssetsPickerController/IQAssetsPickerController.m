@@ -318,11 +318,11 @@
     {
         if (section == 0)
         {
-            return @"Albums";
+            return @"Все альбомы";
         }
         else if (section == 1)
         {
-            return @"My Albums";
+            return @"Мои альбомы";
         }
     }
 
