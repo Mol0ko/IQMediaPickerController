@@ -59,6 +59,9 @@
     
     _selectedItems = [[NSMutableArray alloc] init];
     _albumCache = [[NSMutableDictionary alloc] init];
+    
+    // make back arrow without text
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
 
     //If top level framework
     if(self.collectionList == nil)
