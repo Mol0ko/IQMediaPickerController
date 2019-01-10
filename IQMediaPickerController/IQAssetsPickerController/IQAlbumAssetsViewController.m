@@ -53,6 +53,9 @@
 {
     [super viewDidLoad];
     
+    // make back arrow without text
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
+    
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
     
     NSMutableArray<NSPredicate*> *predicates = [[NSMutableArray alloc] init];
