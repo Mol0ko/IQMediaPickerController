@@ -91,7 +91,18 @@
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView registerClass:[IQAssetsAlbumViewCell class] forCellReuseIdentifier:NSStringFromClass([IQAssetsAlbumViewCell class])];
     
-    [self refreshAlbumList];
+    if (PHPhotoLibrary.authorizationStatus == PHAuthorizationStatusNotDetermined) {
+        // Access has not been determined.
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            if (status == PHAuthorizationStatusAuthorized) {
+                [self refreshAlbumList];
+            } else {
+                [self dismissViewControllerAnimated:true completion:nil];
+            }
+        }];
+    } else {
+        [self refreshAlbumList];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
