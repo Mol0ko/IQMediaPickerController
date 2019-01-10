@@ -267,7 +267,7 @@
         
         if (self.maximumItemCount > 0)
         {
-            finalText = [finalText stringByAppendingFormat:@" (%lu max) ",(unsigned long)self.maximumItemCount];
+            finalText = [finalText stringByAppendingFormat:@" (%lu  макс.) ",(unsigned long)self.maximumItemCount];
         }
 
         self.selectedMediaCountItem.title = finalText;
@@ -348,8 +348,8 @@
         NSDictionary *titleAttributes = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:25.0],NSForegroundColorAttributeName:[UIColor darkGrayColor]};
         NSDictionary *messageAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:20.0],NSForegroundColorAttributeName:[UIColor grayColor]};
 
-        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Empty Folder" attributes:titleAttributes];
-        NSAttributedString *attributedMessage = [[NSAttributedString alloc] initWithString:@"\n\nThis folder contains no albums" attributes:messageAttributes];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"Папка пуста" attributes:titleAttributes];
+        NSAttributedString *attributedMessage = [[NSAttributedString alloc] initWithString:@"\n\nАльбомы отсутствуют" attributes:messageAttributes];
         NSMutableAttributedString *finalMessage = [[NSMutableAttributedString alloc] init];
         [finalMessage appendAttributedString:attributedTitle];
         [finalMessage appendAttributedString:attributedMessage];
