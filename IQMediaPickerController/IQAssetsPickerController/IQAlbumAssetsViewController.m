@@ -329,7 +329,7 @@
         [self.assetController.selectedItems removeObject:asset];
         cell.checkmarkView.alpha = 0.0;
     }
-    else
+    else if (self.assetController.selectedItems < self.assetController.maximumItemCount)
     {
         [self.assetController.selectedItems addObject:asset];
         cell.checkmarkView.alpha = 1.0;
