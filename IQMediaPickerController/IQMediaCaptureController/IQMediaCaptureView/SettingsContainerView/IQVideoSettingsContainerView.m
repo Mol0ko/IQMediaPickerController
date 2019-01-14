@@ -74,7 +74,7 @@ typedef NS_ENUM(NSUInteger, IQVideoSettingsType) {
             _buttonFlashAuto.alpha = 0;
             _buttonFlashAuto.titleLabel.font = [UIFont systemFontOfSize:12];
             _buttonFlashAuto.tintColor = [UIColor whiteColor];
-            [_buttonFlashAuto setTitle:@"Auto" forState:UIControlStateNormal];
+            [_buttonFlashAuto setTitle:@"Авто" forState:UIControlStateNormal];
             _buttonFlashAuto.frame = _buttonFlash.frame;
             [_buttonFlashAuto sizeToFit];
             CGRect rect = _buttonFlashAuto.frame;
@@ -88,7 +88,7 @@ typedef NS_ENUM(NSUInteger, IQVideoSettingsType) {
             _buttonFlashOn.alpha = 0;
             _buttonFlashOn.titleLabel.font = [UIFont systemFontOfSize:12];
             _buttonFlashOn.tintColor = [UIColor whiteColor];
-            [_buttonFlashOn setTitle:@"On" forState:UIControlStateNormal];
+            [_buttonFlashOn setTitle:@"Вкл." forState:UIControlStateNormal];
             _buttonFlashOn.frame = _buttonFlash.frame;
             [_buttonFlashOn sizeToFit];
             rect = _buttonFlashOn.frame;
@@ -102,7 +102,7 @@ typedef NS_ENUM(NSUInteger, IQVideoSettingsType) {
             _buttonFlashOff.alpha = 0;
             _buttonFlashOff.titleLabel.font = [UIFont systemFontOfSize:12];
             _buttonFlashOff.tintColor = [UIColor whiteColor];
-            [_buttonFlashOff setTitle:@"Off" forState:UIControlStateNormal];
+            [_buttonFlashOff setTitle:@"Выкл." forState:UIControlStateNormal];
             _buttonFlashOff.frame = _buttonFlash.frame;
             [_buttonFlashOff sizeToFit];
             rect = _buttonFlashOff.frame;
@@ -130,7 +130,7 @@ typedef NS_ENUM(NSUInteger, IQVideoSettingsType) {
             [_buttonVideoQuality addTarget:self action:@selector(videoQualityAction:) forControlEvents:UIControlEventTouchUpInside];
             _buttonVideoQuality.tintColor = [UIColor yellowColor];
             _buttonVideoQuality.frame = CGRectMake(CGRectGetMaxX(_buttonFlash.frame), 0, 60, 40);
-            [self addSubview:_buttonVideoQuality];
+            //[self addSubview:_buttonVideoQuality];
             
             _qualityPickerView = [[IQAKPickerView alloc] initWithFrame:CGRectMake(60, 0, CGRectGetMaxX(self.bounds)-60, 40)];
             _qualityPickerView.delegate = self;
@@ -152,7 +152,7 @@ typedef NS_ENUM(NSUInteger, IQVideoSettingsType) {
             _labelFileSize.font = [UIFont systemFontOfSize:12];
             _labelFileSize.textColor = [UIColor whiteColor];
             _labelFileSize.alpha = 0;
-            [self addSubview:_labelFileSize];
+            //[self addSubview:_labelFileSize];
             
             _labelDuration = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
             _labelDuration.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
