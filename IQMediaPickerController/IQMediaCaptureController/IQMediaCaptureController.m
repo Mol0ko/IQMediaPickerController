@@ -185,6 +185,32 @@
             break;
     }
     
+    AVAuthorizationStatus* authStatus = [AVCaptureDevice authorizationStatusForMediaType: AVMediaTypeVideo];
+    if (authStatus == AVAuthorizationStatusNotDetermined) {
+        // Access has not been determined.
+        [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+            if (granted) {
+                [self updateUI];
+            } else {
+                [self dismissViewControllerAnimated:true completion:nil];
+            }
+        }];
+    } else if (authStatus == AVAuthorizationStatusDenied || authStatus == AVAuthorizationStatusRestricted) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Отказано в доступе" message:@"Для использования камеры необходимо предоставить доступ в настройках вашего iPhone" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Предоставить" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:true completion:^{
+                NSURL* settingsUrl = [[NSURL alloc] initWithString: UIApplicationOpenSettingsURLString];
+                if ([[UIApplication sharedApplication] canOpenURL:settingsUrl]) {
+                    [[UIApplication sharedApplication] openURL:settingsUrl];
+                }
+            }];
+        }]];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"Отмена" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:true completion:nil];
+        }]];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    
     [self updateUI];
 }
 
