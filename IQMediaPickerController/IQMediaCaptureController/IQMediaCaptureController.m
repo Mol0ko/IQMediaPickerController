@@ -189,10 +189,10 @@
     if (authStatus == AVAuthorizationStatusNotDetermined) {
         // Access has not been determined.
         [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-            if (granted) {
-                [self updateUI];
-            } else {
-                [self dismissViewControllerAnimated:true completion:nil];
+            if (!granted) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self dismissViewControllerAnimated:true completion:nil];
+                });
             }
         }];
     } else if (authStatus == AVAuthorizationStatusDenied || authStatus == AVAuthorizationStatusRestricted) {
