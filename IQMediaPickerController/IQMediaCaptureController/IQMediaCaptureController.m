@@ -204,11 +204,11 @@
     self.buttonSelect.hidden = count == 0;
     if (count)
     {
-        [self.buttonSelect setTitle:[NSString stringWithFormat:@"%ld Selected",(unsigned long)count] forState:UIControlStateNormal];
+        [self.buttonSelect setTitle:[NSString stringWithFormat:@"Далее (%ld)",(unsigned long)count] forState:UIControlStateNormal];
     }
     else
     {
-        [self.buttonSelect setTitle:[NSString stringWithFormat:@"Select"] forState:UIControlStateNormal];
+        [self.buttonSelect setTitle:[NSString stringWithFormat:@"Далее"] forState:UIControlStateNormal];
     }
     
     [self session].delegate = self;
@@ -1091,18 +1091,18 @@
                 self.buttonSelect.hidden = count == 0;
                 if (count)
                 {
-                    [self.buttonSelect setTitle:[NSString stringWithFormat:@"%ld Selected",(unsigned long)count] forState:UIControlStateNormal];
+                    [self.buttonSelect setTitle:[NSString stringWithFormat:@"Далее (%ld)",(unsigned long)count] forState:UIControlStateNormal];
                 }
                 else
                 {
-                    [self.buttonSelect setTitle:[NSString stringWithFormat:@"Select"] forState:UIControlStateNormal];
+                    [self.buttonSelect setTitle:[NSString stringWithFormat:@"Далее"] forState:UIControlStateNormal];
                 }
             }
         }
     }
     else
     {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error!" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Ошибка" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
         [self presentViewController:alertController animated:YES completion:nil];
     }
@@ -1123,17 +1123,17 @@
     {
         case PHAssetMediaTypeImage:
         {
-            return @"PHOTO";
+            return @"ФОТО";
         }
             break;
         case PHAssetMediaTypeVideo:
         {
-            return @"VIDEO";
+            return @"ВИДЕО";
         }
             break;
         case PHAssetMediaTypeAudio:
         {
-            return @"AUDIO";
+            return @"АУДИО";
         }
             break;
             
@@ -1230,7 +1230,7 @@
         _buttonCancel = [UIButton buttonWithType:UIButtonTypeSystem];
         _buttonCancel.tintColor = [UIColor whiteColor];
         [_buttonCancel.titleLabel setFont:[UIFont systemFontOfSize:18.0]];
-        [_buttonCancel setTitle:@"Cancel" forState:UIControlStateNormal];
+        [_buttonCancel setTitle:@"Отмена" forState:UIControlStateNormal];
         [_buttonCancel addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     
@@ -1258,7 +1258,7 @@
         [_buttonSelect.titleLabel setFont:[UIFont systemFontOfSize:18.0]];
         _buttonSelect.titleLabel.minimumScaleFactor = 0.5;
         _buttonSelect.titleLabel.adjustsFontSizeToFitWidth = YES;
-        [_buttonSelect setTitle:@"Select" forState:UIControlStateNormal];
+        [_buttonSelect setTitle:@"Далее" forState:UIControlStateNormal];
         [_buttonSelect setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_buttonSelect addTarget:self action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
     }
