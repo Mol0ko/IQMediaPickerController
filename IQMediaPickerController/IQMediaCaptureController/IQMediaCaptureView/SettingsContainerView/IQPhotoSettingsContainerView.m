@@ -71,7 +71,7 @@ typedef NS_ENUM(NSUInteger, IQPhotoSettingsType) {
             _buttonFlashAuto.alpha = 0;
             _buttonFlashAuto.titleLabel.font = [UIFont systemFontOfSize:12];
             _buttonFlashAuto.tintColor = [UIColor whiteColor];
-            [_buttonFlashAuto setTitle:@"Auto" forState:UIControlStateNormal];
+            [_buttonFlashAuto setTitle:@"Авто" forState:UIControlStateNormal];
             [_buttonFlashAuto sizeToFit];
             _buttonFlashAuto.frame = CGRectMake(CGRectGetMaxX(_buttonFlash.frame)+40, 0, CGRectGetWidth(_buttonFlashAuto.frame), 40);
             [self addSubview:_buttonFlashAuto];
@@ -81,7 +81,7 @@ typedef NS_ENUM(NSUInteger, IQPhotoSettingsType) {
             _buttonFlashOn.alpha = 0;
             _buttonFlashOn.titleLabel.font = [UIFont systemFontOfSize:12];
             _buttonFlashOn.tintColor = [UIColor whiteColor];
-            [_buttonFlashOn setTitle:@"On" forState:UIControlStateNormal];
+            [_buttonFlashOn setTitle:@"Вкл." forState:UIControlStateNormal];
             [_buttonFlashOn sizeToFit];
             _buttonFlashOn.frame = CGRectMake(CGRectGetMaxX(_buttonFlashAuto.frame)+40, 0, CGRectGetWidth(_buttonFlashOn.frame), 40);
             [self addSubview:_buttonFlashOn];
@@ -91,7 +91,7 @@ typedef NS_ENUM(NSUInteger, IQPhotoSettingsType) {
             _buttonFlashOff.alpha = 0;
             _buttonFlashOff.titleLabel.font = [UIFont systemFontOfSize:12];
             _buttonFlashOff.tintColor = [UIColor whiteColor];
-            [_buttonFlashOff setTitle:@"Off" forState:UIControlStateNormal];
+            [_buttonFlashOff setTitle:@"Выкл." forState:UIControlStateNormal];
             [_buttonFlashOff sizeToFit];
             _buttonFlashOff.frame = CGRectMake(CGRectGetMaxX(_buttonFlashOn.frame)+40, 0, CGRectGetWidth(_buttonFlashOff.frame), 40);
             [self addSubview:_buttonFlashOff];
@@ -115,7 +115,7 @@ typedef NS_ENUM(NSUInteger, IQPhotoSettingsType) {
             [_buttonPhotoQuality addTarget:self action:@selector(photoQualityAction:) forControlEvents:UIControlEventTouchUpInside];
             _buttonPhotoQuality.tintColor = [UIColor yellowColor];
             _buttonPhotoQuality.frame = CGRectMake(CGRectGetMaxX(_buttonFlash.frame), 0, 60, 40);
-            [self addSubview:_buttonPhotoQuality];
+            //[self addSubview:_buttonPhotoQuality];
             
             _qualityPickerView = [[IQAKPickerView alloc] initWithFrame:CGRectMake(60, 0, CGRectGetMaxX(self.bounds)-60, 40)];
             _qualityPickerView.delegate = self;
