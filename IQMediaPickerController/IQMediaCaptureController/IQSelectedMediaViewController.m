@@ -48,11 +48,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // make back arrow without text
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
-    
     self.view.backgroundColor = self.collectionView.backgroundColor = [UIColor whiteColor];
     self.navigationItem.hidesBackButton = YES;
+    
+    // make back arrow without text
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" " style:UIBarButtonItemStylePlain target:self action:nil];
     
     UICollectionViewFlowLayout *_flowLayout = (UICollectionViewFlowLayout*)self.collectionViewLayout;
     _flowLayout.minimumLineSpacing = _flowLayout.minimumInteritemSpacing = 1.0f;
