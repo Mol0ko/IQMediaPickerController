@@ -146,12 +146,14 @@
             finalText = [finalText stringByAppendingFormat:@" (%lu макс.) ",(unsigned long)self.assetController.maximumItemCount];
         }
         self.selectedMediaCountItem.title = finalText;
+        self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, 64, 0);
     }
     else
     {
         [self.navigationItem setRightBarButtonItem:nil animated:animated];
         [self.navigationController setToolbarHidden:YES animated:animated];
         self.selectedMediaCountItem.title = nil;
+        self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     }
 }
 
