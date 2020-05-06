@@ -162,6 +162,9 @@
         NSCompoundPredicate *finalPredicate = [[NSCompoundPredicate alloc] initWithType:NSOrPredicateType subpredicates:predicates];
         
         options.predicate = finalPredicate;
+        options.sortDescriptors = @[
+            [NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES],
+        ];
         
         NSMutableArray<NSArray<PHCollection*>*> *allSections = [[NSMutableArray alloc] init];
         //If top level framework
@@ -184,7 +187,7 @@
                         [smartCollections addObject:assetCollection];
                     }
                 }
-                
+
                 [allSections addObject:smartCollections];
             }
 
@@ -262,7 +265,7 @@
 
             [allSections addObject:collectionsToKeep];
         }
-        
+
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             weakSelf.isLoading = NO;
             weakSelf.sections = allSections;
